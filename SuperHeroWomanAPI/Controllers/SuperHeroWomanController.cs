@@ -72,5 +72,34 @@ namespace SuperHeroWomanAPI.Controllers
             heroes.Add(hero);
             return Ok(heroes);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<List<SuperHeroWoman>>> UpdateHero(SuperHeroWoman request)
+        {
+            var hero = heroes.Find(h => h.Id == request.Id);
+            if (hero == null)
+                return BadRequest("Hero not found.");
+
+            hero.Name = request.Name;
+            hero.FirstName = request.FirstName;
+            hero.LastName = request.LastName;
+            hero.Place = request.Place;
+            hero.Actions = request.Actions;
+            hero.LocalActions = request.LocalActions;
+            
+            return Ok(heroes);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<SuperHeroWoman>>> Delete(int id)
+        {
+            var hero = heroes.Find(h => h.Id == id);
+            if (hero == null)
+                return BadRequest("Hero not found.");
+            
+            heroes.Remove(hero);            
+            return Ok(heroes);
+        }
+
     }
 }
