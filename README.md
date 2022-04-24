@@ -2,7 +2,7 @@ SuperHeroWomanAPI
 
 # CRUD - API 
 ## Desafio DIO - Bootcamp Banco Carrefour Woman
-### Tema - Mulheres Empoderadas
+### Tema - Empoderamento Feminino
 Pacotes instalados:
 
 - Install-Package Microsoft.EntityFrameworkCore
